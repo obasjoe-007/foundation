@@ -45,4 +45,4 @@ The layers are listed below:
 2. Framework layer: this is the layer where all the dependencies and libraries required by the application are installed.
 3. Application layer: this is the layer where the actual application files are copied from the work station into the image.
 4. Script layer: this is the layer where the startup/stop script run. The scripts are run to run the application.
-5. Configuration layer: this layer is not build along with the image, it is injected during run time. this layer is needed for the environment variables. It could be non-sensitive or sensitive variables.
+5. Configuration layer: this layer is not build along with the image, it is injected during run time. this layer is needed for the environment variables. It could be non-sensitive or sensitive variables, certificates.
