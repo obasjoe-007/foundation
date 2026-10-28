@@ -1,1 +1,48 @@
-This is assignment2
+1. Docker image is needed to solve the following problems that are associated with running apps without an image.
+
+a. Consistence in environment for deployment.
+    - Server/OS having an image solve the issue of running application on different servers with different OS or libraries which may affect the application.
+      Having it as an image all the dependencies are included in it and doesn't have issue with the host OS.
+
+b. Portability.
+   - Having all the application and all the libraries and dependencies in a single image makes it portable to be ship and shared without lost of files or any dependencies.
+
+c. Scalability.
+   - With scalability we can increase or decrease the application capacity due to demands from the traffic.
+
+d. Faster Deployment.
+   - It is easier and fast to deploy because all the required dependencies and libraries are all packaged in a single image. To deploy it on a new environment we don't have to spend more time installing libraries and dependencies or copying the required files. 
+
+e. Easy Management.
+   - Without images different applications running on the server may be conflicting another due to their differences in libraries and dependencies. But with image each application can run    its own dependencies in itself without conflicting the others.
+
+
+2. Pointers needed to build a Dockerfile.
+
+- Determine the programming language used in designing the application e.g Java, Phython, Go, Node.js this helps us to select the base Image needed.  'FROM'
+- Runtime version: This tells us the specific software version required to run the application.  'RUN'
+- Build tool: This is the tool used to compile, package or mange the app dependencies.  'RUN'
+- Application source code: The file that defines the libraries and packages the application needs 'COPY'
+- Working Directory: This is the directory that where the application is expected to be running from. 'WORKDIR'
+- USER: For security a user has to be define so the application is not run as a root user. 'USER'
+- EXPOSE: This is used to expose the port where the container can be accessed from 'EXPOSE'
+- CMD: This is the default command that would be run to start a process when the container starts. 'CMD' with CMD, any command that is declared during runtime will overwrite whatever is declared in the Dockerfile.
+- ENTRYPOINT: This works like CMD but the difference is that what ever command that is passed during runtime would not overwrite the default command in the file rather it would pass it as an argument to the command. 'ENTRYPOINT'
+
+3. Docker image is made of the following for its structure.
+
+| Script Layer |
+| ------------------ |
+|Application Layer|
+|Framework Layer |
+| OS Layer|
+
+A Docker image is made up of basically 5 layers but 4 layers is build as a image the fifth layer is injected into it during runtime.
+
+The layers are listed below:
+
+1. OS layer: this is the layer where the OS is determined based on the base image that is used in building the image.
+2. Framework layer: this is the layer where all the dependencies and libraries required by the application are installed.
+3. Application layer: this is the layer where the actual application files are copied from the work station into the image.
+4. Script layer: this is the layer where the startup/stop script run. The scripts are run to run the application.
+5. Configuration layer: this layer is not build along with the image, it is injected during run time. this layer is needed for the environment variables. It could be non-sensitive or sensitive variables.
