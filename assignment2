@@ -33,8 +33,9 @@ e. Easy Management.
 
 | Script Layer |
 | ------------------ |
-|Application Layer|
-|Framework Layer |
+| Configuration Layer |
+| Application Layer |
+| Framework Layer |
 | OS Layer|
 
 A Docker image is made up of basically 5 layers but 4 layers is build as a image the fifth layer is injected into it during runtime.
